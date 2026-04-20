@@ -1,15 +1,144 @@
 <?php
 declare(strict_types=1);
 
+/**
+ * Entorno local: navegador en localhost / 127.0.0.1 / *.local, o CLI con TELAS_BI_LOCAL=1
+ * (setup_db.php y setup.php marcan CLI automáticamente).
+ * En producción (host real) no aplica y solo se usa config.php (+ config.local.php si existiera).
+ */
+function bi_is_local_environment(): bool {
+	$flag = getenv('TELAS_BI_LOCAL');
+	if ($flag !== false && $flag !== '') {
+		$flag = strtolower(trim($flag));
+		if (in_array($flag, ['1', 'true', 'yes', 'local'], true)) {
+			return true;
+		}
+		if (in_array($flag, ['0', 'false', 'no', 'production', 'prod'], true)) {
+			return false;
+		}
+	}
+	$host = strtolower($_SERVER['HTTP_HOST'] ?? '');
+	if ($host !== '') {
+		if ($host === 'localhost' || $host === '127.0.0.1' || str_starts_with($host, 'localhost:') || str_starts_with($host, '127.0.0.1:')) {
+			return true;
+		}
+		if (str_ends_with($host, '.localhost') || str_ends_with($host, '.test') || str_ends_with($host, '.local')) {
+			return true;
+		}
+		if ($host === '[::1]' || str_starts_with($host, '[::1]:')) {
+			return true;
+		}
+	}
+	$sn = strtolower($_SERVER['SERVER_NAME'] ?? '');
+	if ($sn !== '' && in_array($sn, ['localhost', '127.0.0.1'], true)) {
+		return true;
+	}
+	return false;
+}
+
+/** Carga .env simple (solo KEY=VAL) una vez por ruta; no sustituye variables ya definidas en el sistema. */
+function bi_dotenv_load_if_present(string $path): void {
+	static $loaded = [];
+	if (!is_readable($path)) {
+		return;
+	}
+	$key = realpath($path) ?: $path;
+	if (isset($loaded[$key])) {
+		return;
+	}
+	$loaded[$key] = true;
+	$lines = file($path, FILE_IGNORE_NEW_LINES);
+	if ($lines === false) {
+		return;
+	}
+	foreach ($lines as $line) {
+		$line = trim($line);
+		if ($line === '' || str_starts_with($line, '#')) {
+			continue;
+		}
+		if (!str_contains($line, '=')) {
+			continue;
+		}
+		[$name, $value] = explode('=', $line, 2);
+		$name = trim($name);
+		if ($name === '') {
+			continue;
+		}
+		$value = trim($value);
+		if (
+			(strlen($value) >= 2)
+			&& (($value[0] === '"' && str_ends_with($value, '"')) || ($value[0] === "'" && str_ends_with($value, "'")))
+		) {
+			$value = substr($value, 1, -1);
+		}
+		if (getenv($name) !== false) {
+			continue;
+		}
+		putenv("{$name}={$value}");
+		$_ENV[$name] = $value;
+	}
+}
+
+/** En local: ajusta mysql con variables de entorno (p. ej. desde .env en la raíz del repo). */
+function bi_mysql_config_with_local_env(array $mysql): array {
+	$map = [
+		'TELAS_BI_MYSQL_HOST' => 'host',
+		'TELAS_BI_MYSQL_PORT' => 'port',
+		'TELAS_BI_MYSQL_DB' => 'dbname',
+		'TELAS_BI_MYSQL_DBNAME' => 'dbname',
+		'TELAS_BI_MYSQL_USER' => 'user',
+	];
+	foreach ($map as $env => $cfgKey) {
+		$v = getenv($env);
+		if ($v === false || $v === '') {
+			continue;
+		}
+		if ($cfgKey === 'port') {
+			$mysql['port'] = (int) $v;
+		} else {
+			$mysql[$cfgKey] = $v;
+		}
+	}
+	$pw = getenv('TELAS_BI_MYSQL_PASSWORD');
+	if ($pw !== false) {
+		$mysql['password'] = $pw;
+	}
+	return $mysql;
+}
+
 function app_config(): array {
-	static $config = null;
-	if ($config !== null) return $config;
+	static $cached = null;
+	if ($cached !== null) {
+		return $cached;
+	}
+	if (bi_is_local_environment()) {
+		bi_dotenv_load_if_present(dirname(__DIR__) . '/.env');
+		bi_dotenv_load_if_present(__DIR__ . '/.env');
+	}
 	$configPath = __DIR__ . '/config.php';
 	if (!file_exists($configPath)) {
 		$configPath = __DIR__ . '/config.sample.php';
 	}
 	$config = require $configPath;
-	return $config;
+	$repoLocalSample = __DIR__ . '/config.local.sample.php';
+	if (bi_is_local_environment() && file_exists($repoLocalSample)) {
+		$sample = require $repoLocalSample;
+		if (is_array($sample)) {
+			$config = array_replace_recursive($config, $sample);
+		}
+	}
+	$localPath = __DIR__ . '/config.local.php';
+	if (file_exists($localPath)) {
+		$local = require $localPath;
+		if (is_array($local)) {
+			$config = array_replace_recursive($config, $local);
+		}
+	}
+	if (bi_is_local_environment() && isset($config['mysql']) && is_array($config['mysql'])) {
+		$config['mysql'] = bi_mysql_config_with_local_env($config['mysql']);
+	}
+	$cached = $config;
+	return $cached;
 }
 
 function log_app_error(string $message): void {

@@ -8,7 +8,7 @@ $isLoggedIn = true;
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Recursos | Telas Real</title>
-  <link rel="icon" type="image/png" href="./assets/Imagenes/logo_tr.png">
+  <link rel="icon" type="image/png" href="./assets/Imagenes/Isologo_dw.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <script>
@@ -58,6 +58,15 @@ $isLoggedIn = true;
         opacity: 0;
         transform: scale(0.95) translateY(10px);
         transition: all 0.2s ease-in;
+    }
+    @keyframes resources-shimmer {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+    .resources-hero-border {
+      background: linear-gradient(90deg, rgba(244,63,94,0.5), rgba(192,38,211,0.5), rgba(20,184,166,0.5), rgba(244,63,94,0.5));
+      background-size: 200% auto;
+      animation: resources-shimmer 8s linear infinite;
     }
   </style>
 </head>
@@ -142,68 +151,135 @@ $isLoggedIn = true;
     </div>
   </div>
 
-  <main class="relative z-10 pt-32 pb-24 flex-grow">
+  <main class="relative z-10 pt-28 pb-28 flex-grow">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        
-        <div class="max-w-2xl mb-12">
-            <h1 class="text-4xl font-heading font-bold text-white mb-4">Centro de Recursos</h1>
-            <p class="text-lg text-slate-400">Últimos lanzamientos, noticias y tutoriales para maximizar el valor de tus datos.</p>
+
+        <!-- Hero lanzamiento -->
+        <div class="relative rounded-3xl p-[1px] resources-hero-border mb-14 shadow-[0_0_60px_rgba(124,58,237,0.12)]">
+          <div class="rounded-3xl bg-deep-bg/95 backdrop-blur-xl px-8 py-12 sm:px-12 sm:py-16 relative overflow-hidden">
+            <div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-fuchsia-600/20 blur-3xl pointer-events-none"></div>
+            <div class="absolute -left-16 bottom-0 w-72 h-72 rounded-full bg-teal-500/15 blur-3xl pointer-events-none"></div>
+            <div class="relative z-10 max-w-4xl">
+              <div class="flex flex-wrap items-center gap-3 mb-6">
+                <span class="inline-flex items-center rounded-full bg-rose-500/15 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-rose-300 ring-1 ring-rose-400/30">Lanzamiento</span>
+                <span class="inline-flex items-center rounded-full bg-white/5 px-4 py-1.5 text-xs font-mono text-slate-300 ring-1 ring-white/10">Portal BI v1.0</span>
+                <span class="text-xs text-slate-500">Documentación · Abril 2026</span>
+              </div>
+              <h1 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight mb-6">
+                Nuevo <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-300 via-fuchsia-300 to-teal-300">portal de inteligencia de negocio</span> para Telas Real
+              </h1>
+              <p class="text-lg sm:text-xl text-slate-400 leading-relaxed mb-8 max-w-2xl">
+                Un solo lugar para acceder a tus tableros Power BI, con identidad de marca, acceso seguro y flujo de registro pensado para el equipo. Esta página resume qué trae la versión actual y cómo sacarle provecho.
+              </p>
+              <div class="flex flex-wrap gap-4">
+                <a href="./dashboards.php" class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-600 px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-fuchsia-500/25 hover:opacity-95 transition-opacity">
+                  Ir a dashboards
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                </a>
+                <button type="button" onclick="openModal('lanzamiento-portal')" class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-8 py-3.5 text-sm font-semibold text-white hover:bg-white/10 transition-colors">
+                  Detalle del lanzamiento
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <!-- Noticias Section -->
+        <!-- Métricas / pilares -->
         <section class="mb-20">
-            <div class="flex items-center gap-4 mb-8">
-                <span class="w-1 h-8 bg-data-cyan rounded-full"></span>
-                <h2 class="text-2xl font-bold text-white">Noticias y Lanzamientos</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+            <div class="rounded-2xl border border-white/10 bg-gradient-to-br from-violet-900/30 to-transparent p-8 text-center sm:text-left">
+              <p class="text-3xl font-heading font-bold text-white mb-1">v1.0</p>
+              <p class="text-xs uppercase tracking-widest text-fuchsia-300/90 mb-2">Versión estable</p>
+              <p class="text-sm text-slate-400">Primera entrega pública del portal: acceso, recursos y <strong class="text-slate-300">Gestión B2B</strong> en Power BI.</p>
             </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-                <!-- Card 1: Lanzamiento Dashboard -->
-                <article class="glass-card p-8 rounded-2xl relative overflow-hidden group hover:-translate-y-1 transition-transform cursor-pointer w-full md:col-span-2 lg:col-span-1" onclick="openModal('lanzamiento-dashboard')">
-                    <div class="absolute top-0 right-0 p-4 opacity-10">
-                        <svg class="w-24 h-24 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" /></svg>
+            <div class="rounded-2xl border border-white/10 bg-gradient-to-br from-teal-900/25 to-transparent p-8 text-center sm:text-left">
+              <p class="text-3xl font-heading font-bold text-white mb-1">100%</p>
+              <p class="text-xs uppercase tracking-widest text-teal-300/90 mb-2">En la nube</p>
+              <p class="text-sm text-slate-400">Reportes hospedados en Power BI con experiencia embebida y opción de pantalla completa.</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-gradient-to-br from-rose-900/25 to-transparent p-8 text-center sm:text-left">
+              <p class="text-3xl font-heading font-bold text-white mb-1">Seguro</p>
+              <p class="text-xs uppercase tracking-widest text-rose-300/90 mb-2">Acceso controlado</p>
+              <p class="text-sm text-slate-400">Registro con validación, reCAPTCHA y aprobación de usuarios antes de entrar al portal.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Qué hay en esta versión -->
+        <section class="mb-20">
+          <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-10">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-[0.2em] text-data-cyan">Incluido hoy</span>
+              <h2 class="text-3xl sm:text-4xl font-heading font-bold text-white mt-2">Qué incluye el portal ahora</h2>
+            </div>
+            <p class="text-slate-400 max-w-md text-sm leading-relaxed">Roadmap vivo: iremos sumando tableros y mejoras. Lo que ves abajo es el núcleo de la <strong class="text-slate-200">v1.0</strong>.</p>
+          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <article class="lg:col-span-7 glass-card rounded-2xl p-8 lg:p-10 relative overflow-hidden group cursor-pointer min-h-[280px] flex flex-col justify-end" onclick="openModal('lanzamiento-portal')">
+              <div class="absolute inset-0 bg-gradient-to-t from-deep-bg via-deep-bg/40 to-transparent z-[1]"></div>
+              <div class="absolute top-6 right-6 w-32 h-32 rounded-full bg-fuchsia-500/30 blur-2xl group-hover:bg-fuchsia-400/40 transition-all"></div>
+              <div class="relative z-10">
+                <span class="text-xs font-bold text-amber-300 bg-amber-400/10 px-2 py-1 rounded">Portal</span>
+                <h3 class="text-2xl font-bold text-white mt-4 mb-2 group-hover:text-fuchsia-200 transition-colors">Experiencia unificada</h3>
+                <p class="text-slate-400 text-sm leading-relaxed max-w-lg">Home, recursos, dashboards y cierre de sesión con la misma línea visual Telas Real — pensada para uso diario del equipo comercial y dirección.</p>
+              </div>
+            </article>
+            <div class="lg:col-span-5 flex flex-col gap-6">
+              <article class="glass-card rounded-2xl p-8 flex-1 border-l-4 border-l-teal-400/60 hover:border-l-teal-300 transition-colors cursor-pointer" onclick="openModal('lanzamiento-dashboard')">
+                <h3 class="text-lg font-bold text-white mb-2">Gestión B2B · Power BI</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-4">Tablero comercial integrado: métricas clave y vistas listas para presentar o profundizar.</p>
+                <span class="text-teal-400 text-sm font-semibold">Ver ficha técnica →</span>
+              </article>
+              <article class="rounded-2xl border border-dashed border-white/15 bg-white/[0.03] p-8 flex-1 flex flex-col justify-center">
+                <p class="text-xs uppercase tracking-widest text-slate-500 mb-2">Próximamente</p>
+                <p class="text-white font-semibold">Más reportes y notificaciones</p>
+                <p class="text-slate-500 text-sm mt-1">Las nuevas versiones se anunciarán aquí y en tu correo interno.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- Tutoriales -->
+        <section class="mb-8">
+            <div class="flex items-center gap-4 mb-10">
+                <span class="h-10 w-1.5 rounded-full bg-gradient-to-b from-core-blue to-data-cyan"></span>
+                <div>
+                  <h2 class="text-3xl font-heading font-bold text-white">Tutoriales y buenas prácticas</h2>
+                  <p class="text-slate-500 text-sm mt-1">Saca más jugo a los informes en pocos minutos.</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <article class="group relative rounded-2xl border border-white/10 bg-navy-surface/80 p-8 overflow-hidden cursor-pointer hover:border-fuchsia-400/40 transition-all duration-300 hover:shadow-[0_0_40px_rgba(192,38,211,0.12)]" onclick="openModal('tutorial-navegacion')">
+                    <div class="absolute -right-8 -top-8 w-28 h-28 rounded-full bg-core-blue/20 blur-2xl group-hover:bg-core-blue/30 transition-all"></div>
+                    <div class="relative z-10">
+                      <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-core-blue/30 to-fuchsia-600/20 flex items-center justify-center mb-6 text-fuchsia-200 ring-1 ring-white/10">
+                        <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+                      </div>
+                      <h3 class="text-xl font-bold text-white mb-3 group-hover:text-fuchsia-200 transition-colors">Navegar los dashboards</h3>
+                      <p class="text-slate-400 text-sm leading-relaxed">Pantalla completa, filtros y cómo restablecer la vista sin perder el hilo del análisis.</p>
                     </div>
-                    <span class="text-xs font-bold text-data-cyan bg-data-cyan/10 px-2 py-1 rounded mb-4 inline-block">NUEVO</span>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-core-blue transition-colors">Lanzamiento Dashboard de Gestión Comercial</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Descubre el nuevo tablero para el análisis del comportamiento y desempeño del equipo comercial de Telas Real.</p>
-                    <span class="text-core-blue text-sm font-semibold flex items-center gap-2 mt-4 group-hover:gap-3 transition-all">
-                        Leer más <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                    </span>
                 </article>
             </div>
         </section>
 
-        <!-- Tutoriales Section -->
-        <section>
-            <div class="flex items-center gap-4 mb-8">
-                <span class="w-1 h-8 bg-core-blue rounded-full"></span>
-                <h2 class="text-2xl font-bold text-white">Tutoriales & Guías</h2>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Tutorial 1 -->
-                <article class="bg-navy-surface border border-white/5 p-6 rounded-xl hover:border-core-blue/50 transition-colors group cursor-pointer" onclick="openModal('tutorial-navegacion')">
-                    <div class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center mb-4 group-hover:bg-core-blue group-hover:text-white transition-colors">
-                        <svg class="w-6 h-6 text-slate-400 group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Cómo navegar los dashboards</h3>
-                    <p class="text-slate-400 text-sm">Aprende los conceptos básicos: uso de filtros, pantalla completa y más.</p>
-                </article>
-            </div>
-        </section>
-        
     </div>
   </main>
 
-  <footer class="bg-black py-12 border-t border-white/10">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-        <div class="flex items-center gap-3">
-             <img src="./assets/Imagenes/logo_tr.png" alt="Telas Real" class="h-8 w-auto object-contain logo-tr-white opacity-55 hover:opacity-100 transition-opacity">
-             <span class="text-xs text-gray-500">| Portal Centralizado</span>
+  <footer class="site-footer-legal relative z-20 w-full border-t border-white/10 bg-black/95">
+    <div class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-3 sm:py-3.5">
+      <div class="flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-x-4 sm:gap-y-1 text-[11px] leading-snug sm:text-xs text-slate-400">
+        <div class="flex flex-wrap items-center gap-x-2 gap-y-1 min-w-0">
+          <img src="./assets/Imagenes/logo_tr.png" alt="Telas Real" class="h-5 w-auto shrink-0 object-contain logo-tr-white opacity-90">
+          <span class="text-slate-500 uppercase tracking-wider">Portal BI · Telas Real</span>
         </div>
-        <p class="text-xs text-gray-600">
-            &copy; 2026 diseñado con 💗 por <a href="https://www.dataworld.com.co/" target="_blank" class="text-core-blue hover:text-white transition-colors">Data World</a>. Todos los derechos reservados.
-        </p>
+        <div class="flex flex-wrap items-center gap-x-1.5 gap-y-0.5 sm:justify-center">
+          <span class="text-slate-500">Diseñado con amor</span>
+          <span class="footer-heart footer-heart--sm text-rose-400" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17l-.022.012-.007.004-.003.001a.752.752 0 01-.544 0z"/></svg></span>
+          <span class="text-slate-500">por</span>
+          <a href="https://www.dataworld.com.co/" target="_blank" rel="noopener noreferrer" class="font-medium text-fuchsia-400/95 hover:text-fuchsia-300">Data World</a>
+        </div>
+        <p class="text-slate-500 sm:text-right tabular-nums">&copy; <?php echo date('Y'); ?> Telas Real</p>
+      </div>
     </div>
   </footer>
 
@@ -244,26 +320,41 @@ $isLoggedIn = true;
 
   <script>
     const resourcesData = {
-        'lanzamiento-dashboard': {
-            title: 'Lanzamiento Dashboard de Gestión Comercial',
+        'lanzamiento-portal': {
+            title: 'Lanzamiento del portal BI (v1.0)',
             content: `
                 <div class="space-y-8 text-slate-300">
                     <p class="text-lg leading-relaxed">
-                        Presentamos el nuevo dashboard diseñado para visualizar el comportamiento y desempeño del equipo comercial de Telas Real. Este reporte integral ofrece dos vistas principales para un análisis profundo del funnel de ventas.
+                        Damos la bienvenida al <strong class="text-white">portal de inteligencia de negocio de Telas Real</strong>, desarrollado con Data World. La versión <strong class="text-fuchsia-300">1.0</strong> (documentación abril 2026) concentra acceso autenticado, materiales de ayuda y los tableros Power BI autorizados para la organización.
                     </p>
-                    
+                    <ul class="grid sm:grid-cols-2 gap-4">
+                        <li class="bg-deep-bg/50 p-4 rounded-xl border border-white/5"><span class="text-teal-400 font-bold">·</span> Identidad visual Telas Real y experiencia responsive.</li>
+                        <li class="bg-deep-bg/50 p-4 rounded-xl border border-white/5"><span class="text-teal-400 font-bold">·</span> Registro con validación de dominio y reCAPTCHA.</li>
+                        <li class="bg-deep-bg/50 p-4 rounded-xl border border-white/5"><span class="text-teal-400 font-bold">·</span> Recuperación de contraseña con preguntas de seguridad.</li>
+                        <li class="bg-deep-bg/50 p-4 rounded-xl border border-white/5"><span class="text-teal-400 font-bold">·</span> Dashboard <strong class="text-white">Gestión B2B</strong> embebido y vista ampliada.</li>
+                    </ul>
+                    <p class="text-sm text-slate-500">Las próximas versiones ampliarán catálogo de reportes y novedades; esta página se actualizará con cada despliegue.</p>
+                </div>
+            `
+        },
+        'lanzamiento-dashboard': {
+            title: 'Gestión B2B · Informe Power BI',
+            content: `
+                <div class="space-y-8 text-slate-300">
+                    <p class="text-lg leading-relaxed">
+                        El tablero <strong class="text-white">Gestión B2B</strong> concentra el análisis comercial para Telas Real: evolución de oportunidades, lectura rápida de KPIs y vistas pensadas tanto para operación diaria como para presentaciones.
+                    </p>
                     <div class="space-y-6">
                         <div class="bg-deep-bg/50 p-6 rounded-xl border border-white/5">
                             <h4 class="text-xl font-bold text-white mb-4">1. Vista Funnel Mercately</h4>
                             <img src="./assets/Imagenes/1_vista_funnel_mercateli.png" alt="Vista Funnel Mercately" class="w-full rounded-lg shadow-lg mb-4 border border-white/10">
-                            <p class="mb-2">Esta vista consolida todos los leads potenciales que llegan a Mercately, permitiendo visualizar su gestión en cada etapa del funnel de conversión. Ofrece tanto una perspectiva general como detallada por asesor, analizando tasas de conversión efectivas y no efectivas.</p>
-                            <p class="text-sm text-gray-500 italic">Fuente de datos: API Mercately + Archivo Excel "RADICACIÓN".</p>
+                            <p class="mb-2">Leads y etapas del embudo con foco en conversión y seguimiento por asesor.</p>
+                            <p class="text-sm text-gray-500 italic">Fuente de datos: API Mercately + archivo Excel "RADICACIÓN".</p>
                         </div>
-
                         <div class="bg-deep-bg/50 p-6 rounded-xl border border-white/5">
-                            <h4 class="text-xl font-bold text-white mb-4">2. Vista Gestión Comercial</h4>
+                            <h4 class="text-xl font-bold text-white mb-4">2. Vista gestión comercial</h4>
                             <img src="./assets/Imagenes/2_vista_gestion_comercial.png" alt="Vista Gestión Comercial" class="w-full rounded-lg shadow-lg mb-4 border border-white/10">
-                            <p>Enfocada en el seguimiento una vez los registros ingresan al proceso de gestión interno de Telas Real, permitiendo monitorear la evolución y cierre de cada oportunidad.</p>
+                            <p>Seguimiento interno de registros hasta cierre, alineado al proceso de Telas Real.</p>
                         </div>
                     </div>
                 </div>

@@ -9,7 +9,7 @@ $isLoggedIn = isset($_SESSION['user_id']);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portal Centralizado | Telas Real</title>
   
-  <link rel="icon" type="image/png" href="./assets/Imagenes/logo_tr.png">
+  <link rel="icon" type="image/png" href="./assets/Imagenes/Isologo_dw.png">
   
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -42,7 +42,7 @@ $isLoggedIn = isset($_SESSION['user_id']);
   </script>
   <link rel="stylesheet" href="./assets/css/telas-brand.css">
 </head>
-<body class="bg-deep-bg text-slate-300 font-sans antialiased overflow-x-hidden selection:bg-core-blue selection:text-white">
+<body class="bg-deep-bg text-slate-300 font-sans antialiased overflow-x-hidden selection:bg-core-blue selection:text-white flex flex-col min-h-screen">
 
   <!-- Fondo tipo textil: oscuro + degradados vivos -->
   <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
@@ -127,7 +127,7 @@ $isLoggedIn = isset($_SESSION['user_id']);
     </div>
   </div>
 
-  <main class="relative z-10 pt-20">
+  <main class="relative z-10 pt-20 flex-grow">
 
     <!-- Hero Section -->
     <div class="relative isolate px-6 pt-14 lg:px-8">
@@ -149,7 +149,7 @@ $isLoggedIn = isset($_SESSION['user_id']);
           Data World consolida la información crítica de tu negocio en un solo lugar. Visualizaciones de alto impacto para decisiones estratégicas inmediatas.
         </p>
         
-        <div class="mt-10 flex items-center justify-center gap-x-6">
+        <div class="mt-10 flex items-center justify-center gap-x-6 flex-wrap gap-y-4">
           <a href="./dashboards.php" class="rounded-full bg-core-blue px-8 py-4 text-sm font-bold text-white shadow-[0_0_20px_rgba(57,91,181,0.4)] hover:bg-blue-600 hover:shadow-[0_0_30px_rgba(57,91,181,0.6)] hover:-translate-y-1 transition-all duration-300">
             Ir a Dashboards
           </a>
@@ -158,9 +158,61 @@ $isLoggedIn = isset($_SESSION['user_id']);
           </a>
         </div>
       </div>
+
+      <!-- Post-hero: franja técnica a todo el ancho (sin tarjetas grandes) -->
+      <div class="w-full border-y border-white/[0.07] bg-gradient-to-r from-transparent via-white/[0.04] to-transparent">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 sm:gap-x-8 text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-300/90 to-fuchsia-400/90">24/7</span>
+          <span class="text-slate-600 hidden sm:inline" aria-hidden="true">|</span>
+          <span>Power BI</span>
+          <span class="text-slate-600 hidden sm:inline" aria-hidden="true">|</span>
+          <span>Acceso gobernado</span>
+          <span class="text-slate-600 hidden sm:inline" aria-hidden="true">|</span>
+          <span class="text-data-cyan/80">Data World</span>
+        </div>
+      </div>
+
+      <!-- Propuesta de valor: diseño editorial + lista compacta -->
+      <div class="mx-auto max-w-7xl px-6 lg:px-8 py-16 sm:py-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+          <div class="lg:col-span-5">
+            <p class="text-xs font-bold uppercase tracking-[0.2em] text-fuchsia-400/90 mb-3">Por qué este portal</p>
+            <h2 class="text-2xl sm:text-3xl font-heading font-bold text-white leading-tight mb-4">Menos fricción, más claridad para decidir</h2>
+            <p class="text-sm sm:text-base text-slate-400 leading-relaxed">Un solo punto de entrada, sesión segura y tableros listos cuando los necesitas. Pensado para equipos B2B que viven del dato, no del archivo suelto.</p>
+          </div>
+          <ul class="lg:col-span-7 space-y-0 rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden divide-y divide-white/5">
+            <li class="flex gap-4 px-5 py-4 sm:px-6 sm:py-5 items-start">
+              <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-core-blue/15 text-core-blue text-xs font-bold">01</span>
+              <div>
+                <p class="text-sm font-semibold text-white">Identidad corporativa y control</p>
+                <p class="text-xs sm:text-sm text-slate-500 mt-1 leading-relaxed">Registro con dominio Telas Real, aprobación y recuperación de acceso sin depender de terceros externos.</p>
+              </div>
+            </li>
+            <li class="flex gap-4 px-5 py-4 sm:px-6 sm:py-5 items-start">
+              <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-data-cyan/15 text-data-cyan text-xs font-bold">02</span>
+              <div>
+                <p class="text-sm font-semibold text-white">Informes vivos, no capturas estáticas</p>
+                <p class="text-xs sm:text-sm text-slate-500 mt-1 leading-relaxed">Power BI integrado: filtros, drill-down y la misma experiencia que en el servicio, dentro del portal.</p>
+              </div>
+            </li>
+            <li class="flex gap-4 px-5 py-4 sm:px-6 sm:py-5 items-start">
+              <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-telas-rose/15 text-telas-rose text-xs font-bold">03</span>
+              <div>
+                <p class="text-sm font-semibold text-white">Recursos y acompañamiento</p>
+                <p class="text-xs sm:text-sm text-slate-500 mt-1 leading-relaxed">Materiales de ayuda y evolución del catálogo de dashboards con el respaldo de Data World.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
       
       <!-- Metrics / Value Grid -->
       <div id="soluciones" class="mx-auto max-w-7xl px-6 pb-24 lg:px-8">
+        <div class="max-w-3xl mb-12 lg:mb-14">
+          <p class="text-xs font-bold uppercase tracking-[0.2em] text-data-cyan mb-3">Capacidades</p>
+          <h2 class="text-3xl sm:text-4xl font-heading font-bold text-white mb-4">Un portal con peso operativo</h2>
+          <p class="text-lg text-slate-400 leading-relaxed">Acceso autenticado, tableros gobernados y recursos para que Telas Real tome decisiones con la misma verdad de datos en toda la organización.</p>
+        </div>
         <dl class="grid grid-cols-1 gap-6 lg:grid-cols-3">
           
           <!-- Card 1 -->
@@ -201,6 +253,20 @@ $isLoggedIn = isset($_SESSION['user_id']);
           </div>
 
         </dl>
+
+        <!-- CTA dual: ancho completo, bajo perfil visual -->
+        <div class="mt-16 sm:mt-20 flex flex-col sm:flex-row gap-4 sm:items-stretch max-w-5xl">
+          <a href="./dashboards.php" class="flex-1 rounded-2xl border border-white/10 bg-gradient-to-br from-core-blue/20 to-transparent px-6 py-5 text-left hover:border-core-blue/40 transition-colors group">
+            <span class="text-xs font-bold uppercase tracking-widest text-core-blue/90">Siguiente paso</span>
+            <span class="mt-2 block text-lg font-heading font-bold text-white group-hover:text-data-cyan transition-colors">Abrir área de dashboards</span>
+            <span class="mt-1 block text-xs text-slate-500">Elige el informe B2B u otros reportes publicados.</span>
+          </a>
+          <a href="./resources.php" class="flex-1 rounded-2xl border border-white/10 bg-white/[0.02] px-6 py-5 text-left hover:border-fuchsia-500/30 transition-colors group">
+            <span class="text-xs font-bold uppercase tracking-widest text-fuchsia-400/90">Documentación</span>
+            <span class="mt-2 block text-lg font-heading font-bold text-white group-hover:text-fuchsia-300 transition-colors">Centro de recursos</span>
+            <span class="mt-1 block text-xs text-slate-500">Guías, novedades y buenas prácticas del portal.</span>
+          </a>
+        </div>
       </div>
     </div>
 
@@ -263,15 +329,21 @@ $isLoggedIn = isset($_SESSION['user_id']);
 
   </main>
 
-  <footer class="bg-black py-12 border-t border-white/10">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-        <div class="flex items-center gap-3">
-             <img src="./assets/Imagenes/logo_tr.png" alt="Telas Real" class="h-8 w-auto object-contain logo-tr-white opacity-55 hover:opacity-100 transition-opacity">
-             <span class="text-xs text-gray-500">| Portal Centralizado</span>
+  <footer class="site-footer-legal relative z-20 mt-auto w-full border-t border-white/10 bg-black/95">
+    <div class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-3 sm:py-3.5">
+      <div class="flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-x-4 sm:gap-y-1 text-[11px] leading-snug sm:text-xs text-slate-400">
+        <div class="flex flex-wrap items-center gap-x-2 gap-y-1 min-w-0">
+          <img src="./assets/Imagenes/logo_tr.png" alt="Telas Real" class="h-5 w-auto shrink-0 object-contain logo-tr-white opacity-90">
+          <span class="text-slate-500 uppercase tracking-wider">Portal BI · Telas Real</span>
         </div>
-        <p class="text-xs text-gray-600">
-            &copy; 2026 diseñado con 💗 por <a href="https://www.dataworld.com.co/" target="_blank" class="text-core-blue hover:text-white transition-colors">Data World</a>. Todos los derechos reservados.
-        </p>
+        <div class="flex flex-wrap items-center gap-x-1.5 gap-y-0.5 sm:justify-center">
+          <span class="text-slate-500">Diseñado con amor</span>
+          <span class="footer-heart footer-heart--sm text-rose-400" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17l-.022.012-.007.004-.003.001a.752.752 0 01-.544 0z"/></svg></span>
+          <span class="text-slate-500">por</span>
+          <a href="https://www.dataworld.com.co/" target="_blank" rel="noopener noreferrer" class="font-medium text-fuchsia-400/95 hover:text-fuchsia-300">Data World</a>
+        </div>
+        <p class="text-slate-500 sm:text-right tabular-nums">&copy; <?php echo date('Y'); ?> Telas Real</p>
+      </div>
     </div>
   </footer>
 

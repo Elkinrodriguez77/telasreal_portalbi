@@ -2,6 +2,9 @@
 // Este archivo sirve para inicializar la base de datos manualmente
 // y verificar la conexión con las nuevas credenciales.
 
+if (PHP_SAPI === 'cli') {
+	putenv('TELAS_BI_LOCAL=1');
+}
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);

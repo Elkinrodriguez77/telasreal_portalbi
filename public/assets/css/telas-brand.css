@@ -32,3 +32,36 @@
 .logo-tr-white {
   filter: brightness(0) invert(1);
 }
+
+/* Footer: corazón con pulso suave */
+@keyframes footer-heart-pulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 4px rgba(244, 63, 94, 0.55));
+  }
+  50% {
+    transform: scale(1.12);
+    filter: drop-shadow(0 0 10px rgba(244, 63, 94, 0.85));
+  }
+}
+
+.footer-heart {
+  display: inline-block;
+  animation: footer-heart-pulse 1.15s ease-in-out infinite;
+  vertical-align: -0.12em;
+  line-height: 0;
+}
+
+.footer-heart--sm {
+  vertical-align: -0.08em;
+}
+
+.footer-heart--sm svg {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+/* Footer: siempre por encima del fondo fijo y texto legible */
+.site-footer-legal {
+  isolation: isolate;
+}

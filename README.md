@@ -20,6 +20,10 @@ Abre `http://localhost:8080`. Para parar el servidor: `Ctrl+C`.
 
 No subimos secretos al repo. Copia `backend/config.sample.php` a `backend/config.php` y rellena conexión a la base, claves de reCAPTCHA (sitio + secreta del mismo par en Google) y dominios de correo permitidos. Los archivos `config.php`, notas con contraseñas y `config.md` están en `.gitignore`; quien clone el proyecto tiene que crear su propio `config.php`.
 
+### Probar en tu PC sin mezclar con producción
+
+Puedes dejar `config.php` como en el hosting (o una copia) y crear **`backend/config.local.php`** a partir de `backend/config.local.sample.php`. Ese archivo solo existe en tu máquina (también está en `.gitignore`): redefine por ejemplo el bloque `mysql` para apuntar a una base **local**. El código fusiona `config.local.php` encima de `config.php`, así reutilizas las mismas claves de reCAPTCHA y dominios de correo si quieres. Crea una base vacía local, entra a `setup_db.php`, registra un usuario de prueba y aprueba `approved = 1` en MySQL; eso **no viaja a GitHub**: solo son datos en tu disco.
+
 Tras el primer despliegue o la primera petición que toque la BD, el esquema de tablas se crea solo si el usuario MySQL puede ejecutar `CREATE TABLE`. Si prefieres comprobarlo a mano, puedes abrir en el navegador `setup_db.php` una vez.
 
 ## Despliegue en hosting (cPanel)

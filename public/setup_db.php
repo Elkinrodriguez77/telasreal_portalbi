@@ -1,4 +1,7 @@
 <?php
+if (PHP_SAPI === 'cli') {
+	putenv('TELAS_BI_LOCAL=1');
+}
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -44,7 +47,15 @@ try {
     
 } catch (Throwable $e) {
     echo "<h2 style='color:red'>Error Crítico:</h2>";
-    echo "<pre>" . $e->getMessage() . "</pre>";
-    echo "<pre>" . $e->getTraceAsString() . "</pre>";
+    echo "<pre>" . htmlspecialchars($e->getMessage(), ENT_QUOTES, 'UTF-8') . "</pre>";
+    $msg = $e->getMessage();
+    if (str_contains($msg, '1044')) {
+        echo '<p><strong>El usuario MySQL existe, pero no tiene permisos sobre esa base de datos.</strong> Conéctate en Workbench como <code>root</code> (o un admin), elige la base correcta y ejecuta:</p>';
+        echo '<pre>GRANT ALL PRIVILEGES ON telas_bi_local.* TO \'telas_local\'@\'localhost\';' . "\n" . 'FLUSH PRIVILEGES;</pre>';
+        echo '<p>O en <strong>Server → Users and Privileges</strong> → usuario <code>telas_local</code> → pestaña <strong>Schema Privileges</strong> → añade el esquema <code>telas_bi_local</code> y marca los permisos (en local puedes usar <strong>ALL</strong>).</p>';
+    } elseif (str_contains($msg, '1045')) {
+        echo '<p><strong>MySQL rechazó el usuario o la contraseña.</strong> Revisa <code>.env</code> (<code>TELAS_BI_MYSQL_USER</code> / <code>TELAS_BI_MYSQL_PASSWORD</code>) o <code>backend/config.local.php</code>.</p>';
+    }
+    echo "<pre>" . htmlspecialchars($e->getTraceAsString(), ENT_QUOTES, 'UTF-8') . "</pre>";
 }
 

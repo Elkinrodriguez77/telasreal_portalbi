@@ -9,7 +9,7 @@ $recaptchaSiteKey = (string)($cfg['recaptcha_site_key'] ?? '');
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registro | Telas Real</title>
-  <link rel="icon" type="image/png" href="./assets/Imagenes/logo_tr.png">
+  <link rel="icon" type="image/png" href="./assets/Imagenes/Isologo_dw.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   
@@ -213,15 +213,21 @@ $recaptchaSiteKey = (string)($cfg['recaptcha_site_key'] ?? '');
     </div>
   </main>
 
-  <footer class="bg-black py-12 border-t border-white/10">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-        <div class="flex items-center gap-3">
-             <img src="./assets/Imagenes/logo_tr.png" alt="Telas Real" class="h-8 w-auto object-contain logo-tr-white opacity-55 hover:opacity-100 transition-opacity">
-             <span class="text-xs text-gray-500">| Portal Centralizado</span>
+  <footer class="site-footer-legal relative z-20 w-full border-t border-white/10 bg-black/95">
+    <div class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-3 sm:py-3.5">
+      <div class="flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-x-4 sm:gap-y-1 text-[11px] leading-snug sm:text-xs text-slate-400">
+        <div class="flex flex-wrap items-center gap-x-2 gap-y-1 min-w-0">
+          <img src="./assets/Imagenes/logo_tr.png" alt="Telas Real" class="h-5 w-auto shrink-0 object-contain logo-tr-white opacity-90">
+          <span class="text-slate-500 uppercase tracking-wider">Portal BI · Telas Real</span>
         </div>
-        <p class="text-xs text-gray-600">
-            &copy; 2026 diseñado con 💗 por <a href="https://www.dataworld.com.co/" target="_blank" class="text-core-blue hover:text-white transition-colors">Data World</a>. Todos los derechos reservados.
-        </p>
+        <div class="flex flex-wrap items-center gap-x-1.5 gap-y-0.5 sm:justify-center">
+          <span class="text-slate-500">Diseñado con amor</span>
+          <span class="footer-heart footer-heart--sm text-rose-400" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17l-.022.012-.007.004-.003.001a.752.752 0 01-.544 0z"/></svg></span>
+          <span class="text-slate-500">por</span>
+          <a href="https://www.dataworld.com.co/" target="_blank" rel="noopener noreferrer" class="font-medium text-fuchsia-400/95 hover:text-fuchsia-300">Data World</a>
+        </div>
+        <p class="text-slate-500 sm:text-right tabular-nums">&copy; <?php echo date('Y'); ?> Telas Real</p>
+      </div>
     </div>
   </footer>
 

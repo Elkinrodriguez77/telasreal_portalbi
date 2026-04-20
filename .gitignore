@@ -4,6 +4,9 @@ config.md
 # Configuración real del servidor (usar backend/config.sample.php como plantilla)
 backend/config.php
 
+# Solo desarrollo local: sobrescribe claves de config.php (p. ej. MySQL en tu PC)
+backend/config.local.php
+
 # Variables de entorno
 .env
 .env.*

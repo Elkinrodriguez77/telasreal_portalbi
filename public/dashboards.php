@@ -1,11 +1,14 @@
-<?php require_once __DIR__ . '/auth.php'; ?>
+<?php
+require_once __DIR__ . '/auth.php';
+$isLoggedIn = true;
+?>
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboards | Telas Real</title>
-  <link rel="icon" type="image/png" href="./assets/Imagenes/logo_tr.png">
+  <link rel="icon" type="image/png" href="./assets/Imagenes/Isologo_dw.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <script>
@@ -112,29 +115,26 @@
     </div>
   </div>
 
-  <main class="relative z-10 pt-32 pb-24 flex-grow">
+  <main class="relative z-10 pt-28 pb-24 flex-grow">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
         
-        <div class="max-w-2xl mb-12">
-            <h1 class="text-4xl font-heading font-bold text-white mb-4">Dashboards Estratégicos</h1>
-            <p class="text-lg text-slate-400">Explora los tableros disponibles. Haz clic en una tarjeta para abrir el dashboard en pantalla completa.</p>
+        <div class="max-w-3xl mb-12">
+            <p class="text-xs font-bold uppercase tracking-[0.2em] text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-fuchsia-400 to-teal-300 mb-3">Power BI · Telas Real</p>
+            <h1 class="text-4xl sm:text-5xl font-heading font-bold text-white mb-4">Dashboards</h1>
+            <p class="text-lg text-slate-400">Aquí eliges el informe que quieres ver. Cada tarjeta abre el tablero en vista ampliada (Power BI embebido); no hay vista previa en esta página.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Sell In Dashboard -->
-            <a href="./dash/sales.php" class="glass-card p-8 rounded-2xl relative overflow-hidden group hover:-translate-y-2 transition-transform cursor-pointer">
-                <div class="absolute inset-0 bg-gradient-to-br from-core-blue/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                
+            <a href="./dash/sales.php" class="glass-card p-8 rounded-2xl relative overflow-hidden group hover:-translate-y-2 transition-all duration-300 cursor-pointer border border-teal-500/20 hover:border-teal-400/40">
+                <div class="absolute inset-0 bg-gradient-to-br from-teal-600/15 via-fuchsia-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 <div class="relative z-10">
-                    <div class="w-12 h-12 bg-core-blue/20 rounded-lg flex items-center justify-center mb-6 text-core-blue group-hover:bg-core-blue group-hover:text-white transition-colors">
+                    <div class="w-12 h-12 bg-teal-500/20 rounded-xl flex items-center justify-center mb-6 text-teal-300 group-hover:bg-teal-500 group-hover:text-white transition-colors">
                         <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
                     </div>
-                    
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-core-blue transition-colors">Gestión Comercial</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Métricas de crecimiento y desglose detallado por región geográfica y categoría.</p>
-                    
-                    <span class="text-xs font-semibold text-core-blue flex items-center gap-1">
-                        Ver Dashboard <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-teal-300 transition-colors">Gestión B2B</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Tablero comercial en pantalla completa: filtros, drill-down y lectura cómoda para equipo y gerencia.</p>
+                    <span class="text-xs font-semibold text-teal-400 flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Abrir informe <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                     </span>
                 </div>
             </a>
@@ -143,15 +143,21 @@
     </div>
   </main>
 
-  <footer class="bg-black py-12 border-t border-white/10">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-        <div class="flex items-center gap-3">
-             <img src="./assets/Imagenes/logo_tr.png" alt="Telas Real" class="h-8 w-auto object-contain logo-tr-white opacity-55 hover:opacity-100 transition-opacity">
-             <span class="text-xs text-gray-500">| Portal Centralizado</span>
+  <footer class="site-footer-legal relative z-20 mt-auto w-full border-t border-white/10 bg-black/95">
+    <div class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-3 sm:py-3.5">
+      <div class="flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-x-4 sm:gap-y-1 text-[11px] leading-snug sm:text-xs text-slate-400">
+        <div class="flex flex-wrap items-center gap-x-2 gap-y-1 min-w-0">
+          <img src="./assets/Imagenes/logo_tr.png" alt="Telas Real" class="h-5 w-auto shrink-0 object-contain logo-tr-white opacity-90">
+          <span class="text-slate-500 uppercase tracking-wider">Portal BI · Telas Real</span>
         </div>
-        <p class="text-xs text-gray-600">
-            &copy; 2026 diseñado con 💗 por <a href="https://www.dataworld.com.co/" target="_blank" class="text-core-blue hover:text-white transition-colors">Data World</a>. Todos los derechos reservados.
-        </p>
+        <div class="flex flex-wrap items-center gap-x-1.5 gap-y-0.5 sm:justify-center">
+          <span class="text-slate-500">Diseñado con amor</span>
+          <span class="footer-heart footer-heart--sm text-rose-400" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17l-.022.012-.007.004-.003.001a.752.752 0 01-.544 0z"/></svg></span>
+          <span class="text-slate-500">por</span>
+          <a href="https://www.dataworld.com.co/" target="_blank" rel="noopener noreferrer" class="font-medium text-fuchsia-400/95 hover:text-fuchsia-300">Data World</a>
+        </div>
+        <p class="text-slate-500 sm:text-right tabular-nums">&copy; <?php echo date('Y'); ?> Telas Real</p>
+      </div>
     </div>
   </footer>
 
