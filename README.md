@@ -1,71 +1,35 @@
 # Portal BI — Telas Real
 
-Aplicación web en **PHP** con front en `public/` y lógica y credenciales fuera del document root en `backend/`.
+Portal interno de business intelligence para Telas Real: acceso a dashboards (Power BI embebido), registro con aprobación, login y recuperación de contraseña. El stack es PHP y MySQL; el front vive en `public/` y lo que no debe exponerse al navegador está en `backend/`.
 
-## Requisitos
+## Entorno
 
-- **PHP** 8.x recomendado (con extensiones habituales: `pdo_mysql`, `json`, `session`).
-- **MySQL** o MariaDB (misma base que uses en producción o una copia local).
-- Navegador moderno.
+Necesitas PHP 8 (con `pdo_mysql`, `json`, `session` y `mbstring`) y una base MySQL o MariaDB. En local conviene una BD propia: las credenciales del hosting no suelen funcionar contra `localhost` en tu máquina.
 
-## Estructura
+## Arranque rápido en local
 
-| Ruta | Uso |
-|------|-----|
-| `public/` | Raíz web: páginas, `api/`, assets. |
-| `backend/` | Configuración, acceso a BD, logs (no debe ser público). |
-| `backend/config.sample.php` | Plantilla de configuración **sin secretos**. |
-| `public/assets/Imagenes/logo_tr.png` | Logo Telas Real (header/footer; en blanco vía CSS). Debe existir en el proyecto. |
-| `public/assets/css/telas-brand.css` | Estilos de marca (vidrio, degradados, animación suave). |
+En la raíz del repo (donde están `public` y `backend`):
 
-Archivos que **no** van al repositorio (ver `.gitignore`): notas locales, `backend/config.php` real, logs, `.env`.
+```bash
+php -S localhost:8080 -t public
+```
+
+Abre `http://localhost:8080`. Para parar el servidor: `Ctrl+C`.
 
 ## Configuración
 
-1. Copia la plantilla: `backend/config.sample.php` → `backend/config.php`.
-2. Edita `backend/config.php` en tu máquina o en el servidor con:
-   - datos de conexión MySQL;
-   - claves **secreta** y **de sitio** de reCAPTCHA (deben corresponder al mismo par en Google).
-3. No subas `config.php` ni notas con contraseñas a Git; usa `config.md` solo en local si lo necesitas (está ignorado por git).
+No subimos secretos al repo. Copia `backend/config.sample.php` a `backend/config.php` y rellena conexión a la base, claves de reCAPTCHA (sitio + secreta del mismo par en Google) y dominios de correo permitidos. Los archivos `config.php`, notas con contraseñas y `config.md` están en `.gitignore`; quien clone el proyecto tiene que crear su propio `config.php`.
 
-## Probar en desarrollo (local)
+Tras el primer despliegue o la primera petición que toque la BD, el esquema de tablas se crea solo si el usuario MySQL puede ejecutar `CREATE TABLE`. Si prefieres comprobarlo a mano, puedes abrir en el navegador `setup_db.php` una vez.
 
-Desde la **raíz del proyecto** (donde están las carpetas `public` y `backend`).
+## Despliegue en hosting (cPanel)
 
-**Git Bash:**
+Clona o actualiza desde GitHub con la herramienta de Git del panel. El document root del sitio debe ser la carpeta `public`. Después del pull, vuelve a colocar `backend/config.php` en el servidor (no viene en el repo).
 
-```bash
-php -S localhost:8080 -t public
-```
+## Registro y correo corporativo
 
-**PowerShell:**
+El dominio del email se valida en servidor (`allowed_email_domains` en `config.php`) y en el cliente (`ALLOWED_DOMAIN` en `assets/js/register.js`). Si cambias uno, alinea el otro para no confundir al usuario.
 
-```powershell
-php -S localhost:8080 -t public
-```
+## Recursos de marca
 
-Abre en el navegador: `http://localhost:8080/`
-
-Si ya estás dentro de `public/`:
-
-```bash
-php -S localhost:8080
-```
-
-Detener el servidor: `Ctrl+C`.
-
-Comprueba que PHP esté instalado: `php -v`. Si falla la conexión a BD o el registro, revisa que `backend/config.php` apunte a un MySQL accesible desde tu PC.
-
-## Despliegue (resumen)
-
-- Repositorio en GitHub; en cPanel usar **Control de versiones de Git** para clonar o actualizar el repo en el servidor.
-- Tras clonar o actualizar, asegurar que exista **`backend/config.php`** en el servidor (no viene del repo).
-- El **document root** del dominio debe apuntar a la carpeta **`public`** del proyecto (o equivalente en tu hosting).
-
-## Registro y dominios de correo
-
-El servidor valida el dominio del correo con `allowed_email_domains` en `backend/config.php`. El archivo `public/assets/js/register.js` repite la misma regla solo para feedback inmediato en el navegador: mantén ambos alineados. La plantilla usa `telasreal.com`; si usas otro dominio corporativo, actualiza esos dos sitios y tu `config.php` en servidor.
-
----
-
-*Este README solo documenta el flujo de trabajo; no contiene credenciales ni claves.*
+El logo del header/footer es `public/assets/Imagenes/logo_tr.png`; el aspecto oscuro y los degradados están en `public/assets/css/telas-brand.css` y en la configuración de Tailwind embebida en las páginas.
