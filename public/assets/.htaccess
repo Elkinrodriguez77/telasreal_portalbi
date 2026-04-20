@@ -1,0 +1,6 @@
+Options -Indexes
+
+# Bloquear ejecución de PHP en assets
+<FilesMatch "\.(php|phar|phtml)$">
+	Require all denied
+</FilesMatch>

@@ -1,0 +1,28 @@
+# Notas y secretos locales (no subir)
+config.md
+
+# Configuración real del servidor (usar backend/config.sample.php como plantilla)
+backend/config.php
+
+# Variables de entorno
+.env
+.env.*
+!.env.example
+
+# Logs y temporales del backend
+backend/error.log
+backend/*.log
+*.log
+
+# Sistema operativo / IDE
+Thumbs.db
+Desktop.ini
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*~
+
+# Dependencias locales (por si se agregan después)
+vendor/
+node_modules/

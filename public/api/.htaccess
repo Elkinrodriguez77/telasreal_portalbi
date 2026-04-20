@@ -1,0 +1,19 @@
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	# login.php y register.php: solo POST
+	RewriteCond %{REQUEST_URI} (^|/)(login|register|request_reset|reset_password)\.php$ [NC]
+	RewriteCond %{REQUEST_METHOD} !POST
+	RewriteRule ^ - [R=405,L]
+
+	# session.php: solo GET
+	RewriteCond %{REQUEST_URI} (^|/)session\.php$ [NC]
+	RewriteCond %{REQUEST_METHOD} !GET
+	RewriteRule ^ - [R=405,L]
+</IfModule>
+
+# Bloquear descarga/lectura de archivos peligrosos
+<FilesMatch "\.(env|ini|log|bak|sql|sh|phps)$">
+	Require all denied
+</FilesMatch>

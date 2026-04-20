@@ -1,0 +1,41 @@
+# Forzar HTTPS (si tienes SSL activo)
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteCond %{HTTPS} !=on
+	RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+</IfModule>
+
+# Evitar listado de directorios
+Options -Indexes
+
+# Cabeceras de seguridad básicas
+<IfModule mod_headers.c>
+	Header always set X-Frame-Options "SAMEORIGIN"
+	Header always set X-Content-Type-Options "nosniff"
+	Header always set Referrer-Policy "no-referrer-when-downgrade"
+	Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+	Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
+</IfModule>
+
+# Bloquear acceso a archivos sensibles
+<FilesMatch "\.(env|ini|log|bak|sql|sh|phps|lock)$">
+	Require all denied
+</FilesMatch>
+
+# Bloquear archivos/dirs ocultos (., .git, etc.)
+<FilesMatch "^\.">
+	Require all denied
+</FilesMatch>
+
+# (Opcional) bloquear ejecución PHP en un hipotético uploads/
+<FilesMatch "^uploads/.+\.(php|phar|phtml)$">
+	Require all denied
+</FilesMatch>
+
+# Permitir acceso a páginas de reseteo
+<Files "request-reset.html">
+	Require all granted
+</Files>
+<Files "reset.php">
+	Require all granted
+</Files>

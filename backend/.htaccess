@@ -1,0 +1,11 @@
+# Denegar todo acceso web al backend (credenciales, logs, etc.)
+<IfModule mod_authz_core.c>
+	Require all denied
+</IfModule>
+<IfModule mod_access_compat.c>
+	Order allow,deny
+	Deny from all
+</IfModule>
+
+# Evitar listado de directorios si por alguna razón fuera accesible
+Options -Indexes
