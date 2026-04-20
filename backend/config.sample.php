@@ -15,6 +15,6 @@ return [
 	'recaptcha_secret' => 'TU_CLAVE_SECRETA_RECAPTCHA',
 	'recaptcha_site_key' => 'TU_CLAVE_DE_SITIO_RECAPTCHA',
 	'allowed_email_domains' => [
-		'asesorgroup.com.co',
+		'telasreal.com',
 	],
 ];

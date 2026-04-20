@@ -1,0 +1,34 @@
+/* Telas Real — tarjetas y acentos sobre fondo oscuro (complementa Tailwind CDN) */
+
+.glass-card {
+  background: rgba(22, 10, 34, 0.52);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(232, 121, 249, 0.2);
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.28);
+}
+
+.glass-card:hover {
+  background: rgba(88, 28, 135, 0.14);
+  border: 1px solid rgba(251, 113, 133, 0.38);
+  box-shadow: 0 0 28px rgba(192, 38, 211, 0.12);
+}
+
+.text-glow {
+  text-shadow: 0 0 32px rgba(232, 121, 249, 0.4);
+}
+
+@keyframes drift {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(10px, 20px); }
+  100% { transform: translate(0, 0); }
+}
+
+.animate-drift {
+  animation: drift 10s infinite ease-in-out;
+}
+
+/* Logo color en header/footer: blanco puro sobre dark */
+.logo-tr-white {
+  filter: brightness(0) invert(1);
+}

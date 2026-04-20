@@ -7,10 +7,9 @@ $isLoggedIn = isset($_SESSION['user_id']);
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portal Centralizado | Asesor Group</title>
+  <title>Portal Centralizado | Telas Real</title>
   
-  <!-- Favicon añadido -->
-  <link rel="icon" type="image/png" href="./assets/Imagenes/Isologo_dw.png">
+  <link rel="icon" type="image/png" href="./assets/Imagenes/logo_tr.png">
   
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -23,55 +22,35 @@ $isLoggedIn = isset($_SESSION['user_id']);
             heading: ['Montserrat', 'sans-serif'],
           },
           colors: {
-            'core-blue': '#395bb5',      
-            'deep-bg': '#020617',        
-            'navy-surface': '#0f172a',   
-            'data-cyan': '#06b6d4',      
-            'data-amber': '#f59e0b',     
-            'glass': 'rgba(15, 23, 42, 0.7)',
+            'core-blue': '#7c3aed',
+            'deep-bg': '#070510',
+            'navy-surface': '#100818',
+            'data-cyan': '#2dd4bf',
+            'data-amber': '#fbbf24',
+            'telas-rose': '#f43f5e',
+            'telas-fuchsia': '#e879f9',
+            'telas-gold': '#facc15',
+            'glass': 'rgba(16, 8, 28, 0.72)',
           },
           backgroundImage: {
             'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-            'hero-glow': 'conic-gradient(from 90deg at 50% 50%, #020617 0%, #1e293b 50%, #395bb5 100%)',
+            'hero-glow': 'conic-gradient(from 145deg at 50% 45%, #4c0519 0%, #701a75 28%, #0f766e 58%, #a16207 88%, #3b0764 100%)',
           }
         }
       }
     }
   </script>
-  <style>
-    .glass-card {
-      background: rgba(30, 41, 59, 0.4);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(57, 91, 181, 0.2);
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    }
-    .glass-card:hover {
-      background: rgba(57, 91, 181, 0.15);
-      border: 1px solid rgba(57, 91, 181, 0.5);
-      box-shadow: 0 0 20px rgba(57, 91, 181, 0.2);
-    }
-    .text-glow {
-      text-shadow: 0 0 20px rgba(57, 91, 181, 0.5);
-    }
-    @keyframes drift {
-      0% { transform: translate(0, 0); }
-      50% { transform: translate(10px, 20px); }
-      100% { transform: translate(0, 0); }
-    }
-    .animate-drift {
-      animation: drift 10s infinite ease-in-out;
-    }
-  </style>
+  <link rel="stylesheet" href="./assets/css/telas-brand.css">
 </head>
 <body class="bg-deep-bg text-slate-300 font-sans antialiased overflow-x-hidden selection:bg-core-blue selection:text-white">
 
-  <!-- Background Effects -->
+  <!-- Fondo tipo textil: oscuro + degradados vivos -->
   <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-    <div class="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-core-blue/20 rounded-full blur-[120px] mix-blend-screen animate-pulse"></div>
-    <div class="absolute bottom-[10%] right-[-5%] w-[500px] h-[500px] bg-data-cyan/10 rounded-full blur-[100px] mix-blend-screen"></div>
-    <div class="absolute top-[40%] left-[30%] w-[300px] h-[300px] bg-purple-900/20 rounded-full blur-[80px]"></div>
-    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03]"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-[#06030a] via-[#14081c] to-[#061018]"></div>
+    <div class="absolute top-[-15%] left-[-15%] w-[720px] h-[720px] max-w-[90vw] rounded-full bg-gradient-to-br from-rose-600/35 via-fuchsia-600/25 to-transparent blur-[100px] mix-blend-screen animate-pulse"></div>
+    <div class="absolute bottom-[-12%] right-[-12%] w-[640px] h-[640px] max-w-[88vw] rounded-full bg-gradient-to-tl from-amber-400/30 via-teal-500/25 to-violet-600/20 blur-[110px] mix-blend-screen"></div>
+    <div class="absolute top-[30%] right-[5%] w-[380px] h-[380px] rounded-full bg-gradient-to-br from-purple-600/25 to-cyan-400/15 blur-[90px]"></div>
+    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.035]"></div>
   </div>
 
   <!-- Header -->
@@ -80,7 +59,7 @@ $isLoggedIn = isset($_SESSION['user_id']);
       <div class="flex lg:flex-1">
         <a href="./index.php" class="-m-1.5 p-1.5 flex items-center gap-3 group">
           <!-- Logo del Cliente -->
-          <img src="./assets/Imagenes/Logobyd.png" alt="Asesor Group Logo" class="h-10 w-auto object-contain brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity">
+          <img src="./assets/Imagenes/logo_tr.png" alt="Telas Real" class="h-10 w-auto max-h-11 object-contain object-left logo-tr-white opacity-95 group-hover:opacity-100 transition-opacity">
         </a>
       </div>
       
@@ -125,7 +104,7 @@ $isLoggedIn = isset($_SESSION['user_id']);
     <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto px-6 py-6">
       <div class="flex items-center justify-between mb-8">
         <a href="#" class="-m-1.5 p-1.5">
-          <img src="./assets/Imagenes/Logobyd.png" alt="Logo" class="h-8 w-auto brightness-0 invert">
+          <img src="./assets/Imagenes/logo_tr.png" alt="Telas Real" class="h-8 w-auto object-contain logo-tr-white">
         </a>
         <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-200" onclick="document.getElementById('mobile-menu').classList.add('hidden')">
           <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" /></svg>
@@ -156,14 +135,14 @@ $isLoggedIn = isset($_SESSION['user_id']);
         <!-- Badge -->
         <div class="hidden sm:mb-8 sm:flex sm:justify-center animate-drift">
           <div class="relative rounded-full px-4 py-1.5 text-sm leading-6 text-slate-400 ring-1 ring-white/10 hover:ring-core-blue/50 hover:bg-core-blue/10 transition-all cursor-default backdrop-blur-sm">
-            Bienvenido a la Central de Datos <span class="font-semibold text-data-cyan">Asesor Group</span>
+            Bienvenido a la Central de Datos <span class="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-rose-300 via-fuchsia-300 to-teal-300">Telas Real</span>
           </div>
         </div>
         
         <!-- Main Title -->
         <h1 class="font-heading text-5xl font-extrabold tracking-tight text-white sm:text-7xl mb-6">
           Toda tu empresa <br/>
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-core-blue via-blue-400 to-data-cyan text-glow">Centralizada & Visible 24/7</span>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-fuchsia-400 to-teal-300 text-glow">Centralizada & Visible 24/7</span>
         </h1>
         
         <p class="mt-6 text-lg leading-8 text-slate-400 max-w-2xl mx-auto">
@@ -227,7 +206,7 @@ $isLoggedIn = isset($_SESSION['user_id']);
 
     <!-- Section: Visualización Showcase -->
     <div class="bg-navy-surface py-24 relative border-t border-white/5 overflow-hidden">
-        <div class="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-core-blue/5 to-transparent pointer-events-none"></div>
+        <div class="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-fuchsia-600/10 via-rose-600/5 to-transparent pointer-events-none"></div>
         <div class="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div>
@@ -287,7 +266,7 @@ $isLoggedIn = isset($_SESSION['user_id']);
   <footer class="bg-black py-12 border-t border-white/10">
     <div class="mx-auto max-w-7xl px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
         <div class="flex items-center gap-3">
-             <img src="./assets/Imagenes/Logobyd.png" alt="Logo" class="h-8 w-auto brightness-0 invert opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+             <img src="./assets/Imagenes/logo_tr.png" alt="Telas Real" class="h-8 w-auto object-contain logo-tr-white opacity-55 hover:opacity-100 transition-opacity">
              <span class="text-xs text-gray-500">| Portal Centralizado</span>
         </div>
         <p class="text-xs text-gray-600">

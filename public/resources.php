@@ -7,8 +7,8 @@ $isLoggedIn = true;
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Recursos | Asesor Group</title>
-  <link rel="icon" type="image/png" href="./assets/Imagenes/Isologo_dw.png">
+  <title>Recursos | Telas Real</title>
+  <link rel="icon" type="image/png" href="./assets/Imagenes/logo_tr.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <script>
@@ -20,37 +20,26 @@ $isLoggedIn = true;
             heading: ['Montserrat', 'sans-serif'],
           },
           colors: {
-            'core-blue': '#395bb5',      
-            'deep-bg': '#020617',        
-            'navy-surface': '#0f172a',   
-            'data-cyan': '#06b6d4',      
-            'data-amber': '#f59e0b',     
-            'glass': 'rgba(15, 23, 42, 0.7)',
+            'core-blue': '#7c3aed',
+            'deep-bg': '#070510',
+            'navy-surface': '#100818',
+            'data-cyan': '#2dd4bf',
+            'data-amber': '#fbbf24',
+            'telas-rose': '#f43f5e',
+            'telas-fuchsia': '#e879f9',
+            'telas-gold': '#facc15',
+            'glass': 'rgba(16, 8, 28, 0.72)',
           },
           backgroundImage: {
             'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-            'hero-glow': 'conic-gradient(from 90deg at 50% 50%, #020617 0%, #1e293b 50%, #395bb5 100%)',
+            'hero-glow': 'conic-gradient(from 145deg at 50% 45%, #4c0519 0%, #701a75 28%, #0f766e 58%, #a16207 88%, #3b0764 100%)',
           }
         }
       }
     }
   </script>
+  <link rel="stylesheet" href="./assets/css/telas-brand.css">
   <style>
-    .glass-card {
-      background: rgba(30, 41, 59, 0.4);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(57, 91, 181, 0.2);
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    }
-    .glass-card:hover {
-      background: rgba(57, 91, 181, 0.15);
-      border: 1px solid rgba(57, 91, 181, 0.5);
-      box-shadow: 0 0 20px rgba(57, 91, 181, 0.2);
-    }
-    .text-glow {
-      text-shadow: 0 0 20px rgba(57, 91, 181, 0.5);
-    }
     /* Modal transitions */
     .modal-enter {
         opacity: 0;
@@ -74,11 +63,12 @@ $isLoggedIn = true;
 </head>
 <body class="bg-deep-bg text-slate-300 font-sans antialiased overflow-x-hidden selection:bg-core-blue selection:text-white flex flex-col min-h-screen">
 
-  <!-- Background Effects -->
   <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-    <div class="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-core-blue/20 rounded-full blur-[120px] mix-blend-screen animate-pulse"></div>
-    <div class="absolute bottom-[10%] right-[-5%] w-[500px] h-[500px] bg-data-cyan/10 rounded-full blur-[100px] mix-blend-screen"></div>
-    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03]"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-[#06030a] via-[#14081c] to-[#061018]"></div>
+    <div class="absolute top-[-15%] left-[-15%] w-[720px] h-[720px] max-w-[90vw] rounded-full bg-gradient-to-br from-rose-600/35 via-fuchsia-600/25 to-transparent blur-[100px] mix-blend-screen animate-pulse"></div>
+    <div class="absolute bottom-[-12%] right-[-12%] w-[640px] h-[640px] max-w-[88vw] rounded-full bg-gradient-to-tl from-amber-400/30 via-teal-500/25 to-violet-600/20 blur-[110px] mix-blend-screen"></div>
+    <div class="absolute top-[30%] right-[5%] w-[380px] h-[380px] rounded-full bg-gradient-to-br from-purple-600/25 to-cyan-400/15 blur-[90px]"></div>
+    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.035]"></div>
   </div>
 
   <!-- Header -->
@@ -86,7 +76,7 @@ $isLoggedIn = true;
     <nav class="flex items-center justify-between p-6 lg:px-8 max-w-7xl mx-auto" aria-label="Global">
       <div class="flex lg:flex-1">
         <a href="./index.php" class="-m-1.5 p-1.5 flex items-center gap-3 group">
-          <img src="./assets/Imagenes/Logobyd.png" alt="Asesor Group Logo" class="h-10 w-auto object-contain brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity">
+          <img src="./assets/Imagenes/logo_tr.png" alt="Telas Real" class="h-10 w-auto max-h-11 object-contain object-left logo-tr-white opacity-95 group-hover:opacity-100 transition-opacity">
         </a>
       </div>
       
@@ -129,7 +119,7 @@ $isLoggedIn = true;
     <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto px-6 py-6">
       <div class="flex items-center justify-between mb-8">
         <a href="#" class="-m-1.5 p-1.5">
-          <img src="./assets/Imagenes/Logobyd.png" alt="Logo" class="h-8 w-auto brightness-0 invert">
+          <img src="./assets/Imagenes/logo_tr.png" alt="Telas Real" class="h-8 w-auto object-contain logo-tr-white">
         </a>
         <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-200" onclick="document.getElementById('mobile-menu').classList.add('hidden')">
           <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" /></svg>
@@ -175,7 +165,7 @@ $isLoggedIn = true;
                     </div>
                     <span class="text-xs font-bold text-data-cyan bg-data-cyan/10 px-2 py-1 rounded mb-4 inline-block">NUEVO</span>
                     <h3 class="text-xl font-bold text-white mb-2 group-hover:text-core-blue transition-colors">Lanzamiento Dashboard de Gestión Comercial</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Descubre el nuevo tablero para el análisis del comportamiento y desempeño del equipo comercial de Asesor Group.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Descubre el nuevo tablero para el análisis del comportamiento y desempeño del equipo comercial de Telas Real.</p>
                     <span class="text-core-blue text-sm font-semibold flex items-center gap-2 mt-4 group-hover:gap-3 transition-all">
                         Leer más <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                     </span>
@@ -208,7 +198,7 @@ $isLoggedIn = true;
   <footer class="bg-black py-12 border-t border-white/10">
     <div class="mx-auto max-w-7xl px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
         <div class="flex items-center gap-3">
-             <img src="./assets/Imagenes/Logobyd.png" alt="Logo" class="h-8 w-auto brightness-0 invert opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+             <img src="./assets/Imagenes/logo_tr.png" alt="Telas Real" class="h-8 w-auto object-contain logo-tr-white opacity-55 hover:opacity-100 transition-opacity">
              <span class="text-xs text-gray-500">| Portal Centralizado</span>
         </div>
         <p class="text-xs text-gray-600">
@@ -259,7 +249,7 @@ $isLoggedIn = true;
             content: `
                 <div class="space-y-8 text-slate-300">
                     <p class="text-lg leading-relaxed">
-                        Presentamos el nuevo dashboard diseñado para visualizar el comportamiento y desempeño del equipo comercial de Asesor Group. Este reporte integral ofrece dos vistas principales para un análisis profundo del funnel de ventas.
+                        Presentamos el nuevo dashboard diseñado para visualizar el comportamiento y desempeño del equipo comercial de Telas Real. Este reporte integral ofrece dos vistas principales para un análisis profundo del funnel de ventas.
                     </p>
                     
                     <div class="space-y-6">
@@ -273,7 +263,7 @@ $isLoggedIn = true;
                         <div class="bg-deep-bg/50 p-6 rounded-xl border border-white/5">
                             <h4 class="text-xl font-bold text-white mb-4">2. Vista Gestión Comercial</h4>
                             <img src="./assets/Imagenes/2_vista_gestion_comercial.png" alt="Vista Gestión Comercial" class="w-full rounded-lg shadow-lg mb-4 border border-white/10">
-                            <p>Enfocada en el seguimiento una vez los registros ingresan al proceso de gestión interno de Asesor Group, permitiendo monitorear la evolución y cierre de cada oportunidad.</p>
+                            <p>Enfocada en el seguimiento una vez los registros ingresan al proceso de gestión interno de Telas Real, permitiendo monitorear la evolución y cierre de cada oportunidad.</p>
                         </div>
                     </div>
                 </div>

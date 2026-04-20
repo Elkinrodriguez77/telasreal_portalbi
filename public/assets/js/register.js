@@ -2,7 +2,7 @@
 	const form = document.getElementById('registerForm');
 	const submitBtn = document.getElementById('submitBtn');
 	const alertBox = document.getElementById('formAlert');
-	const ALLOWED_DOMAIN = 'asesorgroup.com.co';
+	const ALLOWED_DOMAIN = 'telasreal.com';
 	const SITE_KEY = (document.body && document.body.dataset.recaptchaSiteKey) || '';
 
 	function showAlert(message, ok) {
