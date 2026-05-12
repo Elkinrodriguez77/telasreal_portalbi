@@ -1,6 +1,9 @@
 # Notas y secretos locales (no subir)
 config.md
 
+# URLs de iframes Power BI (usar public/dash/embed-config.sample.php como plantilla)
+public/dash/embed-config.php
+
 # Configuración real del servidor (usar backend/config.sample.php como plantilla)
 backend/config.php
 

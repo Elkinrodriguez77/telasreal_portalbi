@@ -3,6 +3,8 @@ require_once __DIR__ . '/../auth.php';
 // En esta página siempre estamos logueados porque auth.php lo fuerza.
 // Pero necesitamos la sesión para mostrar el nombre.
 if (session_status() === PHP_SESSION_NONE) session_start();
+require_once __DIR__ . '/embed-bootstrap.php';
+$powerbiGestionB2bUrl = $DASH_EMBED['gestion_b2b'];
 ?>
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
@@ -187,7 +189,7 @@ if (session_status() === PHP_SESSION_NONE) session_start();
 
         <!-- PowerBI Container -->
         <div id="dashboard-container" class="glass-card p-1 rounded-2xl transition-all duration-300">
-             <iframe title="BI Comercial TR" class="w-full h-[85vh] rounded-xl bg-white" src="https://app.powerbi.com/view?r=eyJrIjoiYWRlYTVmZWYtOGY2My00MmE4LTk3MzYtMjdlODRkYzUyMWE1IiwidCI6IjVkNTZhZDFiLTc4NDctNDQ1Yy1hNTBjLTIzMWQ5ZjhlY2NiMiJ9" frameborder="0" allowFullScreen="true"></iframe>
+             <iframe title="BI Comercial TR" class="w-full h-[85vh] rounded-xl bg-white" src="<?php echo htmlspecialchars($powerbiGestionB2bUrl, ENT_QUOTES, 'UTF-8'); ?>" frameborder="0" allowFullScreen="true"></iframe>
         </div>
         
     </div>

@@ -1,6 +1,8 @@
 <?php 
 require_once __DIR__ . '/../auth.php'; 
 if (session_status() === PHP_SESSION_NONE) session_start();
+require_once __DIR__ . '/embed-bootstrap.php';
+$powerbiVentas360Url = $DASH_EMBED['ventas_360'];
 ?>
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
@@ -174,7 +176,7 @@ if (session_status() === PHP_SESSION_NONE) session_start();
                id="dashboard-frame"
                title="BI Ventas TR"
                class="block rounded-xl bg-white"
-               src="https://app.powerbi.com/view?r=eyJrIjoiZTRhZTM4MDgtYjExNy00OTJlLTk4Y2QtYjE2NGVhZDFkM2E2IiwidCI6IjVkNTZhZDFiLTc4NDctNDQ1Yy1hNTBjLTIzMWQ5ZjhlY2NiMiJ9"
+               src="<?php echo htmlspecialchars($powerbiVentas360Url, ENT_QUOTES, 'UTF-8'); ?>"
                allowfullscreen="true"
              ></iframe>
         </div>
