@@ -138,6 +138,19 @@ $isLoggedIn = true;
                     </span>
                 </div>
             </a>
+            <a href="./dash/ventas-360.php" class="glass-card p-8 rounded-2xl relative overflow-hidden group hover:-translate-y-2 transition-all duration-300 cursor-pointer border border-fuchsia-500/25 hover:border-fuchsia-400/45">
+                <div class="absolute inset-0 bg-gradient-to-br from-fuchsia-600/18 via-rose-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="relative z-10">
+                    <div class="w-12 h-12 bg-fuchsia-500/20 rounded-xl flex items-center justify-center mb-6 text-fuchsia-200 group-hover:bg-fuchsia-600 group-hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-fuchsia-200 transition-colors">Ventas 360°</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Vista integral del negocio: pipeline, clientes y desempeño en un solo lienzo. Cruza perspectivas con <strong class="text-slate-300 font-semibold">Buyer persona</strong> y lecturas listas para acción — ideal cuando necesitas la foto completa sin saltar entre informes.</p>
+                    <span class="text-xs font-semibold text-fuchsia-300 flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Abrir informe <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                    </span>
+                </div>
+            </a>
         </div>
 
     </div>

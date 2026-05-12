@@ -190,7 +190,7 @@ $isLoggedIn = true;
             <div class="rounded-2xl border border-white/10 bg-gradient-to-br from-violet-900/30 to-transparent p-8 text-center sm:text-left">
               <p class="text-3xl font-heading font-bold text-white mb-1">v1.0</p>
               <p class="text-xs uppercase tracking-widest text-fuchsia-300/90 mb-2">Versión estable</p>
-              <p class="text-sm text-slate-400">Primera entrega pública del portal: acceso, recursos y <strong class="text-slate-300">Gestión B2B</strong> en Power BI.</p>
+              <p class="text-sm text-slate-400">Primera entrega pública del portal: acceso, recursos, <strong class="text-slate-300">Gestión B2B</strong> y el nuevo <strong class="text-slate-300">Ventas 360°</strong> en Power BI.</p>
             </div>
             <div class="rounded-2xl border border-white/10 bg-gradient-to-br from-teal-900/25 to-transparent p-8 text-center sm:text-left">
               <p class="text-3xl font-heading font-bold text-white mb-1">100%</p>
@@ -225,6 +225,12 @@ $isLoggedIn = true;
               </div>
             </article>
             <div class="lg:col-span-5 flex flex-col gap-6">
+              <article class="glass-card rounded-2xl p-8 flex-1 border-l-4 border-l-fuchsia-400/70 hover:border-l-fuchsia-300 transition-colors cursor-pointer ring-1 ring-fuchsia-500/15" onclick="openModal('lanzamiento-ventas-360')">
+                <span class="inline-flex items-center rounded-full bg-fuchsia-500/15 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-fuchsia-200 ring-1 ring-fuchsia-400/30 mb-3">Nuevo</span>
+                <h3 class="text-lg font-bold text-white mb-2">Ventas 360° ya en el portal</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-4">Nuevo tablero con <strong class="text-slate-200">clasificaciones avanzadas</strong> como <strong class="text-slate-200">Buyer persona</strong> y <strong class="text-slate-200">objetos visuales renovados</strong> que hacen más fluido el análisis y la lectura de la información comercial.</p>
+                <span class="text-fuchsia-300 text-sm font-semibold">Qué incluye →</span>
+              </article>
               <article class="glass-card rounded-2xl p-8 flex-1 border-l-4 border-l-teal-400/60 hover:border-l-teal-300 transition-colors cursor-pointer" onclick="openModal('lanzamiento-dashboard')">
                 <h3 class="text-lg font-bold text-white mb-2">Gestión B2B · Power BI</h3>
                 <p class="text-slate-400 text-sm leading-relaxed mb-4">Tablero comercial integrado: métricas clave y vistas listas para presentar o profundizar.</p>
@@ -237,29 +243,6 @@ $isLoggedIn = true;
               </article>
             </div>
           </div>
-        </section>
-
-        <!-- Tutoriales -->
-        <section class="mb-8">
-            <div class="flex items-center gap-4 mb-10">
-                <span class="h-10 w-1.5 rounded-full bg-gradient-to-b from-core-blue to-data-cyan"></span>
-                <div>
-                  <h2 class="text-3xl font-heading font-bold text-white">Tutoriales y buenas prácticas</h2>
-                  <p class="text-slate-500 text-sm mt-1">Saca más jugo a los informes en pocos minutos.</p>
-                </div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <article class="group relative rounded-2xl border border-white/10 bg-navy-surface/80 p-8 overflow-hidden cursor-pointer hover:border-fuchsia-400/40 transition-all duration-300 hover:shadow-[0_0_40px_rgba(192,38,211,0.12)]" onclick="openModal('tutorial-navegacion')">
-                    <div class="absolute -right-8 -top-8 w-28 h-28 rounded-full bg-core-blue/20 blur-2xl group-hover:bg-core-blue/30 transition-all"></div>
-                    <div class="relative z-10">
-                      <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-core-blue/30 to-fuchsia-600/20 flex items-center justify-center mb-6 text-fuchsia-200 ring-1 ring-white/10">
-                        <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
-                      </div>
-                      <h3 class="text-xl font-bold text-white mb-3 group-hover:text-fuchsia-200 transition-colors">Navegar los dashboards</h3>
-                      <p class="text-slate-400 text-sm leading-relaxed">Pantalla completa, filtros y cómo restablecer la vista sin perder el hilo del análisis.</p>
-                    </div>
-                </article>
-            </div>
         </section>
 
     </div>
@@ -331,9 +314,23 @@ $isLoggedIn = true;
                         <li class="bg-deep-bg/50 p-4 rounded-xl border border-white/5"><span class="text-teal-400 font-bold">·</span> Identidad visual Telas Real y experiencia responsive.</li>
                         <li class="bg-deep-bg/50 p-4 rounded-xl border border-white/5"><span class="text-teal-400 font-bold">·</span> Registro con validación de dominio y reCAPTCHA.</li>
                         <li class="bg-deep-bg/50 p-4 rounded-xl border border-white/5"><span class="text-teal-400 font-bold">·</span> Recuperación de contraseña con preguntas de seguridad.</li>
-                        <li class="bg-deep-bg/50 p-4 rounded-xl border border-white/5"><span class="text-teal-400 font-bold">·</span> Dashboard <strong class="text-white">Gestión B2B</strong> embebido y vista ampliada.</li>
+                        <li class="bg-deep-bg/50 p-4 rounded-xl border border-white/5"><span class="text-teal-400 font-bold">·</span> Dashboards <strong class="text-white">Gestión B2B</strong> y <strong class="text-white">Ventas 360°</strong> embebidos y vista ampliada.</li>
                     </ul>
                     <p class="text-sm text-slate-500">Las próximas versiones ampliarán catálogo de reportes y novedades; esta página se actualizará con cada despliegue.</p>
+                </div>
+            `
+        },
+        'lanzamiento-ventas-360': {
+            title: 'Ventas 360° · Novedades',
+            content: `
+                <div class="space-y-6 text-slate-300">
+                    <p class="text-lg leading-relaxed">
+                        El tablero <strong class="text-white">Ventas 360°</strong> amplía el catálogo del portal con una mirada de conjunto sobre ventas y clientes, incorporando <strong class="text-fuchsia-200">nuevas clasificaciones</strong> —entre ellas <strong class="text-white">Buyer persona</strong>— para segmentar y entender mejor a quién compra y por qué canales se mueve el negocio.
+                    </p>
+                    <p class="text-slate-400 leading-relaxed">
+                        También incorpora <strong class="text-slate-200">objetos visuales renovados</strong> en Power BI que facilitan comparar, filtrar y contar la historia de los datos con menos fricción: menos saltos entre vistas y lectura más clara para reuniones y seguimiento diario.
+                    </p>
+                    <p class="text-sm text-slate-500">Accede desde <strong class="text-slate-300">Dashboards</strong> en el menú; el informe solo está disponible para usuarios con sesión activa en el portal.</p>
                 </div>
             `
         },
@@ -360,34 +357,6 @@ $isLoggedIn = true;
                 </div>
             `
         },
-        'tutorial-navegacion': {
-            title: 'Cómo navegar los dashboards',
-            content: `
-                <div class="space-y-8 text-slate-300">
-                    <p class="text-lg">Domina la navegación en nuestros reportes para sacar el máximo provecho a la información.</p>
-                    
-                    <div class="space-y-6">
-                        <div class="bg-deep-bg/50 p-6 rounded-xl border border-white/5">
-                            <h4 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
-                                <svg class="w-5 h-5 text-core-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" /></svg>
-                                Pantalla Completa
-                            </h4>
-                            <img src="./assets/Imagenes/navegar_pantalla_completa_dash.png" alt="Pantalla Completa" class="w-full rounded-lg mb-4 border border-white/10">
-                            <p class="text-sm">Utiliza el botón en la esquina superior derecha o inferior para expandir el reporte. Para salir, presiona la tecla <kbd class="px-2 py-0.5 bg-gray-700 rounded text-xs text-white">ESC</kbd> o el botón nuevamente.</p>
-                        </div>
-
-                        <div class="bg-deep-bg/50 p-6 rounded-xl border border-white/5">
-                            <h4 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
-                                <svg class="w-5 h-5 text-data-amber" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
-                                Borrar Filtros
-                            </h4>
-                            <img src="./assets/Imagenes/navegar_borrar_filtros.png" alt="Borrar Filtros" class="w-full rounded-lg mb-4 border border-white/10">
-                            <p class="text-sm">Para reiniciar la vista, busca el icono de "Goma de borrar" o "Restablecer filtros" en la barra de herramientas del reporte.</p>
-                        </div>
-                    </div>
-                </div>
-            `
-        }
     };
 
     function openModal(id) {
